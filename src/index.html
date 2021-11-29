@@ -3,9 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>Recipe Keeper</title>
 </head>
 <body>
-  <h1></h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">RK</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Instructions</a>
+        </li>
+    </div>
+  </nav>
+  <div class="container">
+    <div id="title"></div>
+    <div class="pageSection" id="hero">
+      <div id="initialSearch"></div>
+      <!--includes text: type in an ingredient-->
+      <!--button: "detailed instructions"-->
+    </div>
+    <div class="pageSection" id="plainSearch">
+      <div id="secondarySearch"></div>
+    </div>
+    <div class="pageSection" id="recipeResultList"></div> <!--hide and reappear when "back" is hit-->
+    <div class="pageSection" id="scalingForm"></div>
+    <div class="pageSection" id="recipeItem">
+      <!--back button will live here-->
+    </div>
+    <div class="pageSection" id="shoppingList"></div>
+  </div>
 </body>
 </html>
+
+Structure:
+Home Page:
+    <!-- - navigation - home page -->
+    - title - always at top
+    - tabs - how to use/about/contact - always at top
+    - hero with search bar - always at top
+    <!-- --- new page? --- -->
+    - Results list div
+    <!-- --- new page? --- -->
+    - Recipe div
+    - scaling form
+    - shopping list div
+    --- footer? ---
+
+order of events:
+1. search in searchbar -> slides up(?)
+2. list of recipes appear
+3. click recipe
+4. on recipe: offer different options which will navigate away
+  - scale recipe by [ ] button/form
+  - next to each ingredient: add to shopping list -> creates div at the bottom that will have list

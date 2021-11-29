@@ -1,6 +1,6 @@
-# __
+# _Recipe Keeper_
 
-#### Created By _**Christopher Neal**_
+#### Created By _**Christopher Neal, Ella Tanttu, Curtis Brooks, Jeff Lai, & Kim Brannian**_
 
 #### _An application to_
 
@@ -45,7 +45,7 @@ _None at this time_
 ## License
 
 _[MIT](https://opensource.org/licenses/MIT)_
-Copyright (c) _2021_ _Christopher Neal_
+Copyright (c) _2021_ _Christopher Neal, Ella Tanttu, Curtis Brooks, Jeff Lai, & Kim Brannian_
 
 ## Support and Contact Details
-* _[christopher.m.neal@gmail.com](mailto:christopher.m.neal@gmail.com)_
+* _[christopher.m.neal@gmail.com](mailto:christopher.m.neal@gmail.com), [curtisbrooks678@gmail.com](mailto:curtisbrooks678@gmail.com), [ellatanttudesign@gmail.com](mailto:ellatanttudesign@gmail.com), [brannian@gmail.com](mailto:brannian@gmail.com), [pjefflai@gmail.com](mailto:pjefflai@gmail.com)_
