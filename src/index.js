@@ -45,8 +45,8 @@ function recipeListAppend(quantity, measurement, food) {
 }
 
 // what each should look like
-/* <li class="ingredientItem">
+{/* <li class="ingredientItem">
   <span class="qty"></span>
   <span class="msrmt"></span>
   <span class="food"></span>
-</li> */
+</li>  */}

@@ -1,5 +1,6 @@
 export default class Scaler {
 // change these measurements and units to match what comes from the API
+// change output to look nice
 
 smallestUnit(unitNumber, iterator) {
   for (let iterator = volSmallestUnit.length; iterator > 0; iterator--) {
