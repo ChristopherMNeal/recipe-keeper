@@ -27,6 +27,7 @@
       <form id="formSearchRecipes">
         <div id="initialSearch">
           <input id="search" type="text" placeholder="Enter ingredient here">
+          <button type="button" class="btn btn-dark" id="initialSearchSubmit">Search</button>
         </div>
       <!--includes text: type in an ingredient-->
       <!--button: "detailed instructions"-->
@@ -35,7 +36,9 @@
     <div class="pageSection" id="plainSearch">
       <div id="secondarySearch"></div>
     </div>
-    <div class="pageSection" id="recipeResultList"></div> <!--hide and reappear when "back" is hit-->
+    <div class="pageSection" id="recipeResultList">
+      <ul id="recipeList"></ul>
+    </div> <!--hide and reappear when "back" is hit-->
     <div class="pageSection" id="scalingForm"></div>
     <div class="pageSection" id="recipeItem">
       <!--back button will live here-->
@@ -45,15 +48,15 @@
 </body>
 </html>
 
-Structure:
+<!-- Structure:
 Home Page:
-    <!-- - navigation - home page -->
+    - navigation - home page
     - title - always at top
     - tabs - how to use/about/contact - always at top
     - hero with search bar - always at top
-    <!-- --- new page? --- -->
+    --- new page? ---
     - Results list div
-    <!-- --- new page? --- -->
+    --- new page? --- 
     - Recipe div
     - scaling form
     - shopping list div
@@ -65,4 +68,4 @@ order of events:
 3. click recipe
 4. on recipe: offer different options which will navigate away
   - scale recipe by [ ] button/form
-  - next to each ingredient: add to shopping list -> creates div at the bottom that will have list
+  - next to each ingredient: add to shopping list -> creates div at the bottom that will have list -->
