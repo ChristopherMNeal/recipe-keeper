@@ -85,7 +85,7 @@ function displayRecipe(result, recipeIndex) {
   for (let i = 0; i < result.hits[rI].recipe.ingredients.length; i++) {
     let quantity = result.hits[rI].recipe.ingredients[i].quantity;
     let measurement = result.hits[rI].recipe.ingredients[i].measure;
-    let food = result.hits[rI].recipe.ingredients[i].food;
+    let food = result.hits[rI].recipe.ingredients[i].food.toLowerCase();
     $(`#recipe${rI}`).append(`<li class="ingredientItem">
     <div class="form-check">
     <input class="form-check-input" type="checkbox" value="${food}" id="check${rI}">
@@ -102,7 +102,7 @@ function displayRecipe(result, recipeIndex) {
     for (let i = 0; i < result.hits[rI].recipe.ingredients.length; i++) {
       let quantity = result.hits[rI].recipe.ingredients[i].quantity;
       let measurement = result.hits[rI].recipe.ingredients[i].measure;
-      let food = result.hits[rI].recipe.ingredients[i].food;
+      let food = result.hits[rI].recipe.ingredients[i].food.toLowerCase();
       let quantityMeasurementString = scalerLogic(quantity, measurement, 2);
       $(`#recipe${rI}`).append(`<li class="ingredientItem">
       <div class="form-check">
