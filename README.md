@@ -36,7 +36,8 @@ _This project was created for Epicodus bootcamp to show proficiency in. The appl
 
 ## Known Bugs
 
-_None at this time_
+_1 gallon scaled to 0.53 returns 'undefined' instead of 2 liters, one teaspoon_
+_1 ml scaled to 1 returns 'undefined' instead of 1 ml_
 
 ## Future Updates
 
@@ -48,4 +49,4 @@ _[MIT](https://opensource.org/licenses/MIT)_
 Copyright (c) _2021_ _Christopher Neal, Ella Tanttu, Curtis Brooks, Jeff Lai, & Kim Brannian_
 
 ## Support and Contact Details
-* _[christopher.m.neal@gmail.com](mailto:christopher.m.neal@gmail.com), [curtisbrooks678@gmail.com](mailto:curtisbrooks678@gmail.com), [ellatanttudesign@gmail.com](mailto:ellatanttudesign@gmail.com), [brannian@gmail.com](mailto:brannian@gmail.com), [pjefflai@gmail.com](mailto:pjefflai@gmail.com)_
+* _[christopher.m.neal@gmail.com](mailto:christopher.m.neal@gmail.com), [curtisbrooks678@gmail.com](mailto:curtisbrooks678@gmail.com), [ellatanttu@gmail.com](mailto:ellatanttu@gmail.com), [brannian@gmail.com](mailto:brannian@gmail.com), [pjefflai@gmail.com](mailto:pjefflai@gmail.com)_
