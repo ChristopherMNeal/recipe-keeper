@@ -5,16 +5,22 @@ import './css/styles.css';
 // import { scaler } from '.js/scaler.js';
 import RecipeAPI from './js/recipe-API.js';
 
-function displaySearchResult(result) {
+
+function displaySearchResult(result, ingredient) {
+  $("#recipeList").html(`<h3>${ingredient}</h3>`);
   for (let i = 0; i < result.hits.length; i++) {
     let label = result.hits[i].recipe.label;
     let thumbNail = result.hits[i].recipe.images.THUMBNAIL.url;
     $("#recipeList").append(`<li class ="clickRecipe" id="${i}">
+    <span class="thumbNail"><img src="${thumbNail}"></span>
     <span class="label">${label}</span>
-    <span class="thumbNail">${thumbNail}</span>
+    <button type="button" class="testButton">show ingredients</button>
     <div class="individualRecipe" id="recipe${i}"></div>
     </li>`);
     displayRecipe(result, i);
+    $(`#${i}`).click(function() {
+      $(".individualRecipe", this).toggle();
+    });
   }
 }
 
@@ -32,19 +38,29 @@ function displayRecipe(result, recipeIndex) {
   }
 }
 
-
 async function makeApiCall(ingredient) {
   const response = await RecipeAPI.getRecipe(ingredient);
-  displaySearchResult(response);
+  displaySearchResult(response, ingredient);
 }
 
+function clearFields() {
+  $("#recipeList").empty();
+  $('#search').val("");
+}
 
 $('#initialSearchSubmit').click(function(event) {
   event.preventDefault();
   let userSearch  = $('#search').val();
+  clearFields();
   makeApiCall(userSearch);
 });
 
-$('.clickRecipe').click(function(event) {
-  $(".individualRecipe").toggle(500);
-});
+// $(".thumbNail").click(function() {
+//   alert("works!");
+//   $(".individualRecipe").toggle();
+// });
+
+//   $("p").click(function() {
+//     $(".walrus-showing").toggle();
+//     $(".walrus-hidden").toggle();
+//   });
