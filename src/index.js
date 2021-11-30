@@ -11,15 +11,15 @@ function displaySearchResult(result, ingredient) {
   for (let i = 0; i < result.hits.length; i++) {
     let label = result.hits[i].recipe.label;
     let thumbNail = result.hits[i].recipe.images.THUMBNAIL.url;
-    $("#recipeList").append(`<li class ="clickRecipe" id="${i}">
+    $("#recipeList").append(`<span class="clickRecipe" id="click${i}"><li class ="recipeList" id="recipeList${i}">
     <span class="thumbNail"><img src="${thumbNail}"></span>
-    <span class="label">${label}</span>
+    <span class="label">${label}</span></span>
     <button type="button" class="testButton">show ingredients</button>
-    <div class="individualRecipe" id="recipe${i}"></div>
+    <form class="shoppingList"><div class="individualRecipe, form-group" id="recipe${i}"></div></form>
     </li>`);
     displayRecipe(result, i);
-    $(`#${i}`).click(function() {
-      $(".individualRecipe", this).toggle();
+    $(`#click${i}`).click(function() {
+      $(`.shoppingList`, this).toggle();
     });
   }
 }
@@ -31,12 +31,33 @@ function displayRecipe(result, recipeIndex) {
     let measurement = result.hits[rI].recipe.ingredients[i].measure;
     let food = result.hits[rI].recipe.ingredients[i].food;
     $(`#recipe${rI}`).append(`<li class="ingredientItem">
+    <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="${food}" id="check${rI}">
+    <label class="form-check-label" for="check${rI}">
     <span class="qty">${quantity}</span>
     <span class="msrmt">${measurement}</span>
     <span class="food">${food}</span>
+    </label>
+    </div>
     </li>`);
   }
 }
+
+
+/* <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    Default checkbox
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+  <label class="form-check-label" for="defaultCheck2">
+    Disabled checkbox
+  </label>
+</div> */
+
+
 
 async function makeApiCall(ingredient) {
   const response = await RecipeAPI.getRecipe(ingredient);
@@ -54,13 +75,3 @@ $('#initialSearchSubmit').click(function(event) {
   clearFields();
   makeApiCall(userSearch);
 });
-
-// $(".thumbNail").click(function() {
-//   alert("works!");
-//   $(".individualRecipe").toggle();
-// });
-
-//   $("p").click(function() {
-//     $(".walrus-showing").toggle();
-//     $(".walrus-hidden").toggle();
-//   });
