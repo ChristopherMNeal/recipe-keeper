@@ -38,7 +38,7 @@ function smallestUnit(convertedInput, unitArray, smallestUnitArray) {
   }
 }
 
-export function scalerLogic(input, unit, scale) {
+export default function scalerLogic(input, unit, scale) {
   const volSmallestUnit = [1, 1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 1000, 3785];
   const volUnitArray = ["ml", "quarterTsp", "halfTsp", "teaspoon", "tablespoon", "quarterCup", "thirdCup", "halfCup", "cup", "pint", "quart", "liter", "gallon"];
   const massSmallestUnit = [1, 28.35, 453.59];
