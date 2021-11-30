@@ -37,11 +37,18 @@ function recipeScaler(result, recipeIndex, scaleAmount) {
 }
 
 function recipeListAppend(quantity, measurement, food) {
-  return `<li class="ingredientItem">
-  <span class="qty">${quantity}</span>
-  <span class="msrmt">${measurement}</span>
-  <span class="food">${food}</span>
-  </li>`;
+  if (typeof quantity === 'string') {
+    return `<li class="ingredientItem">
+    <span class="qty">${quantity}</span>
+    <span class="food">${food}</span>
+    </li>`;
+  } else {
+    return `<li class="ingredientItem">
+    <span class="qty">${quantity}</span>
+    <span class="msrmt">${measurement}</span>
+    <span class="food">${food}</span>
+    </li>`;
+  }
 }
 
 // what each should look like
