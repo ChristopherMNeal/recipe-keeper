@@ -5,11 +5,11 @@ class Scaler {
   }
 }
 
-function unitLogic(unitNumber, iterator, remainder, unitArray) {
+function unitLogic(iterator, remainder, unitArray) {
   const refObject = new Scaler([1, 1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 1000, 3785],["ml", "quarterTsp", "halfTsp", "tsp", "tablespoon", "quarterCup", "thirdCup", "halfCup", "cup", "pint", "quart", "liter", "gallon"]);
   const volSmallestUnit = refObject.volSmallestUnit;
   const volUnitArray = refObject.volUnitArray;
-  unitNumber = Math.floor(remainder / volSmallestUnit[iterator]) + volUnitArray[iterator];
+  const unitNumber = Math.floor(remainder / volSmallestUnit[iterator]) + " " + volUnitArray[iterator];
   remainder = remainder % volSmallestUnit[iterator];
   unitArray.push(unitNumber);
 
@@ -25,26 +25,22 @@ function smallestUnit(convertedInput) {
   // const volUnitArray = refObject.volUnitArray;
   for (let i = volSmallestUnit.length; i > 0; i--) {
     if (convertedInput >= volSmallestUnit[i] && remainder >= 1) {
-      const unitOne = "";
-      remainder = unitLogic(unitOne, i, remainder, unitArray);
+      remainder = unitLogic(i, remainder, unitArray);
       for (let j = volSmallestUnit.length; j > 0; j--) {
         if (remainder < 1) {
           return unitArray;
         } else if (remainder >= volSmallestUnit[j]) {
-          const unitTwo = "";
-          remainder = unitLogic(unitTwo, j, remainder, unitArray);
+          remainder = unitLogic(j, remainder, unitArray);
           for (let l = volSmallestUnit.length; l > 0; l--) {
             if (remainder < 1) {
               return unitArray;
             } else if (remainder >= volSmallestUnit[l]) {
-              const unitThree =  "";
-              remainder = unitLogic(unitThree, l, remainder, unitArray);
+              remainder = unitLogic(l, remainder, unitArray);
               for (let k = volSmallestUnit.length; k > 0; k--) {
                 if (remainder < 1) {
                   return unitArray;
                 } else if (remainder >= volSmallestUnit[k]) {
-                  const unitFour =  "";
-                  remainder = unitLogic(unitFour, k, remainder, unitArray);
+                  remainder = unitLogic(k, remainder, unitArray);
                   return unitArray;
                 }
               }
@@ -63,3 +59,12 @@ export function scalerLogic(input, unit, scale) {
   const convertInput = input * volSmallestUnit[volUnitArray.indexOf(unit)] * scale;
   return smallestUnit(convertInput);
 }
+
+
+/* TO DO:
+* improve output so it looks pretty
+* try using map
+* change units to match API
+* change smallest units to match API?
+* add support for mass (g, ounces, lbs, kg) and "each" measurements?
+*/
