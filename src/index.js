@@ -17,12 +17,39 @@ function displaySearchResult(result, ingredient) {
     <button type="button" class="testButton">show ingredients</button>
     <form class="shoppingList"><div class="individualRecipe, form-group" id="recipe${i}"></div></form>
     </li>`);
+    // $(`#shoppingList${i}`).hide();
     displayRecipe(result, i);
     $(`#click${i}`).click(function() {
-      $(`.shoppingList`, this).toggle();
+      $(`.shoppingList`, this).slideDown();
     });
   }
 }
+
+// function displaySearchResult(result, ingredient) {
+//   $("#recipeList").html(`<h3>${ingredient}</h3>`);
+//   for (let i = 0; i < result.hits.length; i++) {
+//     let label = result.hits[i].recipe.label;
+//     let thumbNail = result.hits[i].recipe.images.THUMBNAIL.url;
+//     $("#recipeList").append(`<li class ="recipeList" id="recipeList${i}">
+//     <span class="thumbNail"><img src="${thumbNail}"></span>
+//     <span class="label">${label}</span>
+//     <button type="button" id="showButton${i}">show ingredients</button>
+//     <button type="button" id="hideButton${i}">hide ingredients</button>
+//     <form class="shoppingList"><div class="individualRecipe, form-group" id="recipe${i}"></div></form>
+//     </li>`);
+//     displayRecipe(result, i);
+//     $(`#recipeList${i}`).click(function() {
+//       $(`#showButton${i}`).hide();
+//       $(`#hideButton${i}`).show();
+//       $(".shoppingList", this).toggleSlide();
+//       });
+//     // $(`#recipeList${i}`).click(function() {
+//     //   $(`#showButton${i}`).show();
+//     //   $(`#hideButton${i}`).hide();
+//     //   $(".shoppingList", this).slideUp();
+//     // });
+//   }
+// }
 
 function displayRecipe(result, recipeIndex) {
   let rI = recipeIndex;
