@@ -36,7 +36,8 @@ _This project was created for Epicodus bootcamp to show proficiency in. The appl
 
 ## Known Bugs
 
-_None at this time_
+_1 gallon scaled to 0.53 returns 'undefined' instead of 2 liters, one teaspoon_
+_1 ml scaled to 1 returns 'undefined' instead of 1 ml_
 
 ## Future Updates
 
