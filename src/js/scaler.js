@@ -6,7 +6,7 @@ class Scaler {
 }
 
 function unitLogic(iterator, remainder, unitArray) {
-  const refObject = new Scaler([1, 1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 1000, 3785],["ml", "quarterTsp", "halfTsp", "tsp", "tablespoon", "quarterCup", "thirdCup", "halfCup", "cup", "pint", "quart", "liter", "gallon"]);
+  const refObject = new Scaler([0.62, 1, 1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 1000, 3785],["pinch", "ml", "quarterTsp", "halfTsp", "teaspoon", "tablespoon", "quarterCup", "thirdCup", "halfCup", "cup", "pint", "quart", "liter", "gallon"]);
   const volSmallestUnit = refObject.volSmallestUnit;
   const volUnitArray = refObject.volUnitArray;
   const unitNumber = Math.floor(remainder / volSmallestUnit[iterator]) + " " + volUnitArray[iterator];
@@ -20,7 +20,8 @@ function unitLogic(iterator, remainder, unitArray) {
 function smallestUnit(convertedInput) {
   let unitArray = [];
   let remainder = convertedInput;
-  const refObject = new Scaler([1, 1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 1000, 3785],["ml", "quarterTsp", "halfTsp", "tsp", "tablespoon", "quarterCup", "thirdCup", "halfCup", "cup", "pint", "quart", "liter", "gallon"]);
+  const refObject = new Scaler([0.62, 1, 1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 1000, 3785],["pinch", "ml", "quarterTsp", "halfTsp", "teaspoon", "tablespoon", "quarterCup", "thirdCup", "halfCup", "cup", "pint", "quart", "liter", "gallon"]);
+
   const volSmallestUnit = refObject.volSmallestUnit;
   // const volUnitArray = refObject.volUnitArray;
   for (let i = volSmallestUnit.length; i > 0; i--) {
@@ -53,7 +54,7 @@ function smallestUnit(convertedInput) {
 }
 
 export function scalerLogic(input, unit, scale) {
-  const refObject = new Scaler([1, 1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 1000, 3785],["ml", "quarterTsp", "halfTsp", "tsp", "tablespoon", "quarterCup", "thirdCup", "halfCup", "cup", "pint", "quart", "liter", "gallon"]);
+  const refObject = new Scaler([0.62, 1, 1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 1000, 3785],["pinch", "ml", "quarterTsp", "halfTsp", "teaspoon", "tablespoon", "quarterCup", "thirdCup", "halfCup", "cup", "pint", "quart", "liter", "gallon"]);
   const volSmallestUnit = refObject.volSmallestUnit;
   const volUnitArray = refObject.volUnitArray;
   const convertInput = input * volSmallestUnit[volUnitArray.indexOf(unit)] * scale;
@@ -62,9 +63,12 @@ export function scalerLogic(input, unit, scale) {
 
 
 /* TO DO:
-* improve output so it looks pretty
 * try using map
 * change units to match API
 * change smallest units to match API?
 * add support for mass (g, ounces, lbs, kg) and "each" measurements?
 */
+// [pinch]
+// [gram, ounce, pound, kilogram]
+// [1, 28.35, 453.59, 1000]
+// [null, <unit>, head, clove, piece, serving, stalk, block, bunch]
