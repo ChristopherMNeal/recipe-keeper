@@ -25,13 +25,13 @@ function smallestUnit(convertedInput, unitArray, smallestUnitArray) {
               console.log(remainder);
               return measurementArray;
             } else if (remainder >= smallestUnitArray[l]) {
-              remainder = unitLogic(l, remainder, measurementArray, unitArray, smallestUnitArray).toFixed;
+              remainder = unitLogic(l, remainder, measurementArray, unitArray, smallestUnitArray);
               for (let k = smallestUnitArray.length; k >= 0; k--) {
                 if (remainder < smallestUnitArray[0]) {
                   console.log("test4");
                   return measurementArray;
                 } else if (remainder >= smallestUnitArray[k]) {
-                  remainder = unitLogic(k, remainder, measurementArray, unitArray, smallestUnitArray).toFixed(2);
+                  remainder = unitLogic(k, remainder, measurementArray, unitArray, smallestUnitArray);
                   return measurementArray;
                 }
               }
@@ -54,8 +54,8 @@ export default function scalerLogic(input, unit, scale) {
   const massMetricUnitArray = ["gram", "kilogram", "metric ton"];
   const volUsSmallestUnit = [1.23, 2.46, 4.93, 14.79, 59, 78, 118, 236.6, 473.2, 946.3, 3785];
   const volUsUnitArray = ["quarter tsp", "half tsp", "teaspoon", "tablespoon", "quarter cup", "third cup", "half cup", "cup", "pint", "quart", "gallon", "ton"];
-  const massUsSmallestUnit = [28.35, 453.59, 907185];
-  const massUsUnitArray = ["ounce", "pound", "ton"];
+  const massUsSmallestUnit = [3.54, 7.09, 14.17, 28.35, 453.59, 907185];
+  const massUsUnitArray = ["eighth ounce", "quarter ounce", "half ounce", "ounce", "pound", "ton"];
   let convertInput = 0;
   let result = "";
   if (volUnitArray.indexOf(unit) != -1) {
