@@ -1,12 +1,17 @@
-.shoppingList {
+.recipeContents {
   display: none;
 }
+/* .shoppingList {
+  display: none;
+} */
 
 .hideButton {
   display: none;
 }
 
-
+#shoppingList {
+  background-color: lightblue;
+}
 
 
 
