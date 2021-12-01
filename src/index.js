@@ -11,16 +11,16 @@ function displaySearchResult(result, ingredient) {
     let label = result.hits[i].recipe.label;
     let thumbNail = result.hits[i].recipe.images.THUMBNAIL.url;
     let servings = Math.round(result.hits[i].recipe.yield);
-    let link = result.hits[i].recipe.url
+    let link = result.hits[i].recipe.url;
     $("#recipeList").append(`<span class="clickRecipe" id="click${i}"><li class ="recipeList" id="recipeList${i}">
     <span class="thumbNail"><img src="${thumbNail}"></span>
     <span class="label">${label}</span></span>
     <div class="recipeContents">
     For the whole recipe, follow this <a href="${link}" target="_blank">link</a>.
-    Your recipe serves ${servings} people.
     <input id="scale${i}" type="number" step="0.1" placeholder="Multiply By" min="0.1">
     <button type="button" id="scaleButton${i}">scale recipe</button>
     <form class="shoppingList"><div class="individualRecipe, form-group" id="recipe${i}">
+    <p>Your recipe serves ${servings} people.</p>
     <p>Check ingredients to add to shopping list</p>
     </div></form>
     <button type="button" class="btn btn-info" id="shoppingClick${i}">Update Shopping List</button>
@@ -33,12 +33,9 @@ function displaySearchResult(result, ingredient) {
   }
 }
 
-
-
-
-
 function displayRecipe(result, recipeIndex) {
   let rI = recipeIndex;
+  let servings = result.hits[rI].recipe.yield;
   for (let i = 0; i < result.hits[rI].recipe.ingredients.length; i++) {
     let quantity = result.hits[rI].recipe.ingredients[i].quantity;
     let measurement = result.hits[rI].recipe.ingredients[i].measure;
@@ -72,7 +69,8 @@ function displayRecipe(result, recipeIndex) {
     if (!scaleBy) {
       scaleBy = 1;
     }
-    $(`#recipe${rI}`).append("<p>Check ingredients to add to shopping list</p>");
+    servings *= scaleBy;
+    $(`#recipe${rI}`).append(`<p>Your recipe serves ${servings}  people.</p><p>Check ingredients to add to shopping list</p>`);
     for (let i = 0; i < result.hits[rI].recipe.ingredients.length; i++) {
       let quantity = result.hits[rI].recipe.ingredients[i].quantity;
       let measurement = result.hits[rI].recipe.ingredients[i].measure;
@@ -108,100 +106,3 @@ $('#initialSearchSubmit').click(function(event) {
   clearFields();
   makeApiCall(userSearch);
 });
-
-
-
-
-
-// function displaySearchResult(result, ingredient) {
-//   //   $("#recipeList").html(`You searched recipes for:<h3>${ingredient}</h3>`);
-  //   for (let i = 0; i < result.hits.length; i++) {
-    //     let label = result.hits[i].recipe.label;
-    //     let thumbNail = result.hits[i].recipe.images.THUMBNAIL.url;
-    //     $("#recipeList").append(`<span class="clickRecipe" id="click${i}"><li class ="recipeList" id="recipeList${i}">
-    //     <span class="thumbNail"><img src="${thumbNail}"></span>
-    //     <span class="label">${label}</span></span>
-    //     <button type="button" class="testButton">show ingredients</button>
-    //     <input id="scale${i}" type="number" step="0.1" placeholder="Scale Amount" min="0.1">
-    //     <button type="button" id="scaleButton${i}">scale recipe</button>
-    //     <form class="shoppingList"><div class="individualRecipe, form-group" id="recipe${i}"></div></form>
-    //     </li>`);
-    //     displayRecipe(result, i);
-    //     $(`#click${i}`).click(function() {
-      //       $(`.shoppingList`, this).slideDown();
-      //     });
-      //   }
-      // }
-      
-      // function displaySearchResult(result, ingredient) {
-        //   $("#recipeList").html(`<h3>${ingredient}</h3>`);
-        //   for (let i = 0; i < result.hits.length; i++) {
-          //     let label = result.hits[i].recipe.label;
-          //     let thumbNail = result.hits[i].recipe.images.THUMBNAIL.url;
-          //     $("#recipeList").append(`<li class ="recipeList" id="recipeList${i}">
-          //     <span class="thumbNail"><img src="${thumbNail}"></span>
-          //     <span class="label">${label}</span>
-          //     <button type="button" id="showButton${i}">show ingredients</button>
-          //     <button type="button" id="hideButton${i}">hide ingredients</button>
-          //     <form class="shoppingList"><div class="individualRecipe, form-group" id="recipe${i}"></div></form>
-          //     </li>`);
-          //     displayRecipe(result, i);
-          //     $(`#recipeList${i}`).click(function() {
-            //       $(`#showButton${i}`).hide();
-            //       $(`#hideButton${i}`).show();
-            //       $(".shoppingList", this).toggleSlide();
-            //       });
-            //     // $(`#recipeList${i}`).click(function() {
-              //     //   $(`#showButton${i}`).show();
-              //     //   $(`#hideButton${i}`).hide();
-              //     //   $(".shoppingList", this).slideUp();
-              //     // });
-              //   }
-              // }
-              
-              
-              // run scaler on recipe
-              // should use jQuery to clear list before displaying? Or do in this function?
-              // function recipeScaler(result, recipeIndex, scaleAmount) {
-                //   let rI = recipeIndex;
-                //   for (let i = 0; i < result.hits[rI].recipes.ingredients.length; i++) {
-                  //     let quantity = result.hits[rI].recipe.ingredients[i].quantity;
-                  //     let measurement = result.hits[rI].recipe.ingredients[i].measurement;
-                  //     let food = result.hits[rI].recipe.ingredients[i].food;
-                  //     const scaledIngredient = scaler(quantity, measurement, scaleAmount);
-                  //     measurement = scaledIngredient.join(" ");
-                  //     recipeListAppend(quantity, measurement, food);
-                  //   }
-                  // }
-                  
-                  // function recipeListAppend(quantity, measurement, food) {
-                    //   if (typeof quantity === 'string') {
-                      //     return `<li class="ingredientItem">
-                      //     <span class="qty">${quantity}</span>
-                      //     <span class="food">${food}</span>
-                      //     </li>`;
-                      //   } else {
-                        //     return `<li class="ingredientItem">
-                        //     <span class="qty">${quantity}</span>
-                        //     <span class="msrmt">${measurement}</span>
-                        //     <span class="food">${food}</span>
-                        //     </li>`;
-                        //   }
-                        
-                        
-      
-                        
-  // }
-
-/* <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-    <label class="form-check-label" for="defaultCheck1">
-      Default checkbox
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-    <label class="form-check-label" for="defaultCheck2">
-      Disabled checkbox
-    </label>
-  </div> */
