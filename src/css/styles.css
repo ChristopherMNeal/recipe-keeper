@@ -1,11 +1,214 @@
-.shoppingList {
+/*font-family: 'Comfortaa', cursive;
+font-family: 'Tajawal', sans-serif;
+font-weight: 600;*/
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: rgb(240, 240, 240);
+}
+
+h1, h2, h4, h5, h6 {
+  font-family: 'Comfortaa', cursive;
+}
+
+h3 {
+  font-family: 'Comfortaa', cursive;
+  /* text-transform: uppercase; */
+  letter-spacing: .5px;
+  font-weight: 600;
+
+}
+
+#inlineH3 {
+  font-family: 'Comfortaa', cursive;
+  /* text-transform: uppercase; */
+  letter-spacing: .5px;
+  font-weight: 700;
+}
+
+.label {
+  font-family: 'Comfortaa', cursive;
+  display: inline;
+}
+
+.subnote {
+  font-style: italic;
+  font-size: .85em;
+  letter-spacing: .05em;
+}
+
+.container {
+  margin-top: 35px;
+}
+
+#searchReplay {
+  padding-top: 30px;
+  padding-bottom: 15px;
+  font-size: 1.65em;
+}
+
+.checkIngredients {
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: -10;
+}
+
+.addServForm{
+  padding-bottom: 15px;
+}
+
+/* #recipeList {
+  padding-top: 25px;
+} */
+
+.recipeList {
+  margin-bottom: 80px;
+  list-style-type: none;
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.recipeTitleRow {
+  margin-bottom: 15px;
+}
+
+.recipeContents {
   display: none;
 }
+
+/* .shoppingList {
+  display: none;
+} */
 
 .hideButton {
   display: none;
 }
 
+#logo {
+  width: 350px;
+  margin: auto;
+  /* margin-bottom: 25px; */
+}
+
+.recipeImage {
+  display: block;
+  width: auto;
+  max-width: 75%;
+  /* border-radius: 15px; */
+}
+
+#hero {
+  background-image: url("./../assets/images/foodBG_gradient.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  height: 35rem;
+  /* height: max-content; */
+}
+
+#heroContent {
+  position: absolute;
+  top: 35%;
+  width: 50%;
+  margin: auto;
+}
+
+#initialSearch {
+  margin: auto;
+  padding-top: 25px;
+}
+
+.recipeNameHeader {
+  position: relative;
+  top: 50%;
+  /* transform: translateY(-50%); */
+}
+
+.button1 {
+  background-color: rgb(172,110,129);  
+  border-radius: 12px;
+  border: none;
+  color: white; 
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: rgb(163, 173, 95);  
+  border-radius: 12px;
+  border: none;
+  color: white; 
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.button3 {
+    background-color: rgb(133, 149, 108);  
+    border-radius: 12px;
+    border: none;
+    color: white; 
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 6px 4px;
+    cursor: pointer;
+  }
+
+/*rgb(151, 166, 131)
+
+/*.button {border-radius: 12px;}
+
+/* background-color: rgb(199, 199, 199);
+background-image: url("https://images.unsplash.com/photo-1579751626657-72bc17010498?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2768&q=80");
+background-repeat: no-repeat;
+background-size: 100vw;
+background-position: center;
+text-align: center;
+height: 35vh;
+height: max-content;
+box-shadow: 0px 1px 15px rgb(109, 109, 109);
+border-radius: 0px; */
+
+/* ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+} */
 
 
 

@@ -14,10 +14,10 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
-    new Dotenv(),
     new CleanWebpackPlugin(),
+    new Dotenv(),
     new HtmlWebpackPlugin({
-      title: '************',
+      title: 'Project Name',
       template: './src/index.html',
       inject: 'body'
     })
@@ -43,18 +43,18 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'assets/images/'
+              outputPath: 'src/assets/images/'
             }
           }
         ]
       },
-      
+
       {
         test:/\.html$/,
         use: [
           'html-loader'
         ]
-      }
+      },
     ]
   }
 };
