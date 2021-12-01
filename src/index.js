@@ -55,7 +55,9 @@ function displayRecipe(result, recipeIndex) {
     $("input:checkbox[name=shoppingItem]:checked").each(function(){
       itemArray.push($(this).val());
     });
-    console.log(itemArray);
+    for(let i=0; i < itemArray.length; i++) {
+      $(".testUL").append(`<li>${itemArray[i]}</li>`);
+    }
   });
   
   
