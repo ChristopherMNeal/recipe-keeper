@@ -11,10 +11,12 @@ function displaySearchResult(result, ingredient) {
     let label = result.hits[i].recipe.label;
     let thumbNail = result.hits[i].recipe.images.THUMBNAIL.url;
     let servings = Math.round(result.hits[i].recipe.yield);
+    let link = result.hits[i].recipe.url
     $("#recipeList").append(`<span class="clickRecipe" id="click${i}"><li class ="recipeList" id="recipeList${i}">
     <span class="thumbNail"><img src="${thumbNail}"></span>
     <span class="label">${label}</span></span>
     <div class="recipeContents">
+    For the whole recipe, follow this <a href="${link}" target="_blank">link</a>.
     Your recipe serves ${servings} people.
     <input id="scale${i}" type="number" step="0.1" placeholder="Multiply By" min="0.1">
     <button type="button" id="scaleButton${i}">scale recipe</button>
@@ -33,6 +35,8 @@ function displaySearchResult(result, ingredient) {
 
 
 
+
+
 function displayRecipe(result, recipeIndex) {
   let rI = recipeIndex;
   for (let i = 0; i < result.hits[rI].recipe.ingredients.length; i++) {
@@ -42,7 +46,7 @@ function displayRecipe(result, recipeIndex) {
     let quantityMeasurementString = scalerLogic(quantity, measurement, 1);
     $(`#recipe${rI}`).append(`<li class="ingredientItem">
     <div class="form-check">
-    <input class="form-check-input" type="checkbox" value='${quantityMeasurementString} ${food}' for="${rI}.${i}" name="shoppingItem">
+    <input class="form-check-input" type="checkbox" value='${quantityMeasurementString} ${food}' id="${rI}.${i}" name="shoppingItem">
     <label class="form-check-label" for="${rI}.${i}">
     <span class="qty">${quantityMeasurementString}</span>
     <span class="food">${food}</span>
@@ -51,12 +55,13 @@ function displayRecipe(result, recipeIndex) {
     </li>`);
   }
   $(`#shoppingClick${rI}`).click(function() {
+    $(".updatedShoppingList").empty();
     let itemArray = [];
     $("input:checkbox[name=shoppingItem]:checked").each(function(){
       itemArray.push($(this).val());
     });
     for(let i=0; i < itemArray.length; i++) {
-      $(".testUL").append(`<li>${itemArray[i]}</li>`);
+      $(".updatedShoppingList").append(`<li>${itemArray[i]}</li>`);
     }
   });
   
