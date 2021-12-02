@@ -46,29 +46,3 @@ Copyright (c) _2021_ _Christopher Neal, Ella Tanttu, Curtis Brooks, Jeff Lai, & 
 
 ## Support and Contact Details
 * _[christopher.m.neal@gmail.com](mailto:christopher.m.neal@gmail.com), [curtisbrooks678@gmail.com](mailto:curtisbrooks678@gmail.com), [ellatanttu@gmail.com](mailto:ellatanttu@gmail.com), [brannian@gmail.com](mailto:brannian@gmail.com), [pjefflai@gmail.com](mailto:pjefflai@gmail.com)_
-
-
-## Presentation Planning
-1. 2m Demo & Walkthrough 
-  - search for one item, and multiple
-  - styling: shopping list, logo, kim finding image, 
-2. 3m general dev process, how did we organize group, assign tasks, plan process 
-  - used asana 
-3. 3m API Call - (bugs & solutions, what worked and didnt) 
-  - click functions had to be in async
-  - toggle function never got solved
-4. 3m Scaling (bugs & solutions, what worked and didnt) 
-  - 
-5. 3m broader lessons (from team week)
-  - general bug process: we came together and collaborated (jeff's eagle eyes)
-
-
-Ella - Demo & Walkthrough
-Kim - Dev process & planning 
-Jeff - API call 
-Chris - Talk about scaling function
-Curtis - broader lessons
-
-
-
-
