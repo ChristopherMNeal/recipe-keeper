@@ -41,8 +41,8 @@ function displaySearchResult(result, ingredient) {
           </div>
         </form>
         <button type="button" class="button3" id="shoppingClick${i}">Update Shopping List</button>
+        <p>For the whole recipe, follow this <a href="${link}" target="_blank">link</a></p>
       </div>
-      <p>For the whole recipe, follow this <a href="${link}" target="_blank">link</a></p>
     </li>
   </span>
       `);
@@ -72,6 +72,7 @@ function displayRecipe(result, recipeIndex) {
     </li>`);
   }
   $(`#shoppingClick${rI}`).click(function() {
+    $("#shoppingList").fadeIn();
     $(".updatedShoppingList").empty();
     let itemArray = [];
     $("input:checkbox[name=shoppingItem]:checked").each(function(){
@@ -123,6 +124,18 @@ function clearFields() {
 $('#initialSearchSubmit').click(function(event) {
   event.preventDefault();
   let userSearch  = $('#search').val();
+  $("#greeting").hide();
   clearFields();
   makeApiCall(userSearch);
+});
+
+$(window).scroll(function(e){ 
+  var $el = $('#shoppingList'); 
+  var isPositionFixed = ($el.css('position') == 'fixed');
+  if ($(this).scrollTop() > 600 && !isPositionFixed){ 
+    $el.css({'position': 'fixed', 'top': '0px'}); 
+  }
+  if ($(this).scrollTop() < 600 && isPositionFixed){
+    $el.css({'position': 'static', 'top': '0px'}); 
+  } 
 });
