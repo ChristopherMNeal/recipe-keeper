@@ -100,7 +100,7 @@ function displayRecipe(result, recipeIndex) {
       let quantityMeasurementString = scalerLogic(quantity, measurement, scaleBy);
       $(`#recipe${rI}`).append(`<li class="ingredientItem">
       <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="${food}" id="check${rI}">
+      <input class="form-check-input" type="checkbox" value='${quantityMeasurementString} ${food}' id="${rI}.${i}" name="shoppingItem">
       <label class="form-check-label" for="check${rI}">
       <span class="qty">${quantityMeasurementString}</span>
       <span class="food">${food}</span>
@@ -114,7 +114,7 @@ function displayRecipe(result, recipeIndex) {
 
 async function makeApiCall(ingredient) {
   const response = await RecipeAPI.getRecipe(ingredient);
-  displaySearchResult(response, ingredient);``
+  displaySearchResult(response, ingredient);
 }
 
 function clearFields() {
@@ -134,7 +134,7 @@ $('#initialSearchSubmit').click(function(event) {
   makeApiCall(userSearch);
 });
 
-$(window).scroll(function(e){ 
+$(window).scroll(function(){ 
   var $el = $('#shoppingList'); 
   var isPositionFixed = ($el.css('position') == 'fixed');
   if ($(this).scrollTop() > 600 && !isPositionFixed){ 

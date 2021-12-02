@@ -27,7 +27,7 @@ _This project was created for Epicodus bootcamp as our week 7 Team Week project.
 
 * _To get an API key for Edamam, first sign up for a 'Recipe Search' account [here](https://developer.edamam.com/). Once you are signed in, click on the 'Get an API key now!' tab in your account. Click 'view' on your 'Recipe Search API' application and copy the API key, as well as the App Key._
 * _In the terminal from the project directory run `touch .env` to create an environment file._
-* _Open .env in your prefered editor and insert `API_KEY=` followed by the API key you copied, then insert `APP_ID=` followed by the app ID you copied._
+* _Open .env in your prefered editor and insert `APP_KEY=` followed by the API key you copied, then insert `APP_ID=` followed by the app ID you copied._
 
 * _For more options, please reference [Edamam's recipe API documentation](https://developer.edamam.com/edamam-docs-recipe-api)._
 
