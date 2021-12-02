@@ -22,6 +22,7 @@ h3 {
   display: none;
   background-color: white;
   border-radius: 15px;
+  margin-top: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -112,6 +113,11 @@ h3 {
   color: #ac808d;
   font-style: italic;
   /* color: rgb(182, 188, 122); */
+}
+
+#searchError {
+  color: #ac808d;
+  font-style: italic;
 }
 
 /* rgb(172,110,129); */

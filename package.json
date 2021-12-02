@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "recipe-scaler",
   "version": "1.0.0",
-  "description": "",
+  "description": "An application to search for and modify recipes",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=development",
@@ -11,7 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
-  "author": "Christopher Neal",
+  "author": "Christopher Neal, Ella Tanttu, Curtis Brooks, Jeff Lai, & Kim Brannian",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.6.4",

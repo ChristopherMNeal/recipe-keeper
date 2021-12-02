@@ -6,6 +6,7 @@ import scalerLogic from './js/scaler.js';
 import RecipeAPI from './js/recipe-API.js';
 
 function displaySearchResult(result, ingredient) {
+  $("#recipeList").empty();
   $("#recipeList").html(`<div id="searchReplay"><p>You searched recipes for: <span id="inlineH3">${ingredient}</span</p></div>`);
   for (let i = 0; i < result.hits.length; i++) {
     let label = result.hits[i].recipe.label;
@@ -41,7 +42,7 @@ function displaySearchResult(result, ingredient) {
           </div>
         </form>
         <button type="button" class="button3" id="shoppingClick${i}">Update Shopping List</button>
-        <p>For the whole recipe, follow this <a href="${link}" target="_blank">link</a></p>
+        <p id="wholeRecipe">For the whole recipe, follow this <a href="${link}" target="_blank">link.</a></p>
       </div>
     </li>
   </span>
@@ -113,7 +114,7 @@ function displayRecipe(result, recipeIndex) {
 
 async function makeApiCall(ingredient) {
   const response = await RecipeAPI.getRecipe(ingredient);
-  displaySearchResult(response, ingredient);
+  displaySearchResult(response, ingredient);``
 }
 
 function clearFields() {
@@ -125,6 +126,10 @@ $('#initialSearchSubmit').click(function(event) {
   event.preventDefault();
   let userSearch  = $('#search').val();
   $("#greeting").hide();
+  if (!userSearch) {
+    $("#recipeList").html("<div id='searchError'><h3>Please enter a search term.</h3></div>");
+    return false;
+  }
   clearFields();
   makeApiCall(userSearch);
 });
