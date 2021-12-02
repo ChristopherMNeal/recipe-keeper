@@ -29,7 +29,7 @@ function displaySearchResult(result, ingredient) {
         </div>
       </div>
       <div class="recipeContents">
-        <p class="subnote">Your recipe serves ${servings} people.</p>
+        <p class="subnote">Original recipe serves ${servings} people.</p>
         <div class="addServForm">
         <input id="scale${i}" type="number" step="0.1" placeholder="Multiply By" min="0.1">
         <button type="button" class="button2" id="scaleButton${i}">
@@ -91,8 +91,8 @@ function displayRecipe(result, recipeIndex) {
     if (!scaleBy) {
       scaleBy = 1;
     }
-    servings *= scaleBy;
-    $(`#recipe${rI}`).append(`<p>Your recipe serves ${servings}  people.</p><p>Check ingredients to add to shopping list</p>`);
+    servings = scaleBy * result.hits[rI].recipe.yield;
+    $(`#recipe${rI}`).append(`<p>Your recipe now serves ${servings}  people.</p><p>Check ingredients to add to shopping list</p>`);
     for (let i = 0; i < result.hits[rI].recipe.ingredients.length; i++) {
       let quantity = result.hits[rI].recipe.ingredients[i].quantity;
       let measurement = result.hits[rI].recipe.ingredients[i].measure;
