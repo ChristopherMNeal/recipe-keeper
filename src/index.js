@@ -14,8 +14,8 @@ function displaySearchResult(result, ingredient) {
     let servings = Math.round(result.hits[i].recipe.yield);
     let link = result.hits[i].recipe.url;
     $("#recipeList").append(`
-    <span class="clickRecipe" id="click${i}">
     <li class ="recipeList" id="recipeList${i}">
+    <div class="clickRecipe" id="click${i}">
       <div class="row recipeTitleRow">
         <div class="col-sm-3">
           <span class="thumbNail">
@@ -25,10 +25,10 @@ function displaySearchResult(result, ingredient) {
         <div class="col-sm-9 recipeNameHeader">
           <span class="label">
             <h2>${label}</h2>
-          </span>
         </div>
       </div>
-      <div class="recipeContents">
+    </div>
+      <div id="recipeContents${i}">
         <p class="subnote">Original recipe serves ${servings} people.</p>
         <div class="addServForm">
         <input id="scale${i}" type="number" step="0.1" placeholder="Multiply By" min="0.1">
@@ -48,8 +48,9 @@ function displaySearchResult(result, ingredient) {
   </span>
       `);
     displayRecipe(result, i);
+    $(`#recipeContents${i}`).hide();
     $(`#click${i}`).click(function() {
-      $(`.recipeContents`, this).slideDown();
+      $(`#recipeContents${i}`).slideToggle();
     });
   }
 }
