@@ -14,38 +14,32 @@ function displaySearchResult(result, ingredient) {
     let servings = Math.round(result.hits[i].recipe.yield);
     let link = result.hits[i].recipe.url;
     $("#recipeList").append(`
-    <li class ="recipeList" id="recipeList${i}">
-    <div class="clickRecipe" id="click${i}">
-      <div class="row recipeTitleRow">
-        <div class="col-sm-3">
-          <span class="thumbNail">
-            <img class="recipeImage" src="${thumbNail}">
-          </span>
-        </div>
-        <div class="col-sm-9 recipeNameHeader">
-          <span class="label">
-            <h2>${label}</h2>
-        </div>
-      </div>
-    </div>
-      <div id="recipeContents${i}">
-        <p class="subnote">Original recipe serves ${servings} people.</p>
-        <div class="addServForm">
-        <input id="scale${i}" type="number" step="0.1" placeholder="Multiply By" min="0.1">
-        <button type="button" class="button2" id="scaleButton${i}">
-          Add Servings
-        </button>
-        </div>
-        <form class="shoppingList">
-          <div class="individualRecipe, form-group" id="recipe${i}">
-            <p><span class="checkIngredients">Check ingredients to add to shopping list:</span></p>
+      <li class ="recipeList" id="recipeList${i}">
+        <div class="clickRecipe" id="click${i}">
+          <div class="row recipeTitleRow">
+            <div class="col-sm-3">
+              <img class="recipeImage thumbNail" src="${thumbNail}" alt="Recipe ${i} image">
+            </div>
+            <div class="col-sm-9 recipeNameHeader">
+              <h2 class="label">${label}</h2>
+            </div>
           </div>
-        </form>
-        <button type="button" class="button3" id="shoppingClick${i}">Update Shopping List</button>
-        <p id="wholeRecipe">For the whole recipe, follow this <a href="${link}" target="_blank">link.</a></p>
-      </div>
-    </li>
-  </span>
+        </div>
+        <div id="recipeContents${i}">
+          <p class="subnote">Original recipe serves ${servings} people.</p>
+          <div class="addServForm">
+            <input id="scale${i}" type="number" step="0.1" placeholder="Multiply By" min="0.1">
+            <button type="button" class="button2" id="scaleButton${i}">
+            Add Servings
+            </button>
+          </div>
+          <form class="shoppingList individualRecipe form-group" id="recipe${i}">
+            <p class="checkIngredients">Check ingredients to add to shopping list:</p>
+          </form>
+          <button type="button" class="button3" id="shoppingClick${i}">Update Shopping List</button>
+          <p id="wholeRecipe">For the whole recipe, follow this <a href="${link}" target="_blank">link.</a></p>
+        </div>
+      </li>
       `);
     displayRecipe(result, i);
     $(`#recipeContents${i}`).hide();
@@ -63,15 +57,17 @@ function displayRecipe(result, recipeIndex) {
     let measurement = result.hits[rI].recipe.ingredients[i].measure;
     let food = result.hits[rI].recipe.ingredients[i].food.toLowerCase();
     let quantityMeasurementString = scalerLogic(quantity, measurement, 1);
-    $(`#recipe${rI}`).append(`<li class="ingredientItem">
-    <div class="form-check">
-    <input class="form-check-input" type="checkbox" value='${quantityMeasurementString} ${food}' id="${rI}.${i}" name="shoppingItem">
-    <label class="form-check-label" for="${rI}.${i}">
-    <span class="qty">${quantityMeasurementString}</span>
-    <span class="food">${food}</span>
-    </label>
-    </div>
-    </li>`);
+    $(`#recipe${rI}`).append(`
+    <li class="ingredientItem">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value='${quantityMeasurementString} ${food}' id="${rI}.${i}" name="shoppingItem">
+        <label class="form-check-label" for="${rI}.${i}">
+        <span class="qty">${quantityMeasurementString}</span>
+        <span class="food">${food}</span>
+        </label>
+      </div>
+    </li>
+    `);
   }
   $(`#shoppingClick${rI}`).click(function() {
     $("#shoppingList").fadeIn();
