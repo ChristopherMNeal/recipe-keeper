@@ -33,7 +33,7 @@ _This project was created for Epicodus bootcamp as our week 7 Team Week project.
 
 ## Known Bugs
 
-_5 ounces scaled times 1 returns 5 ounces, 1 ounce where 5 ounces is expected._
+_With certain search terms, not many recipes load. e.g. 'apple' returns four recipes and breaks on the fifth._
 
 ## Future Updates
 

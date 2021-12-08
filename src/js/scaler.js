@@ -1,6 +1,6 @@
 function unitLogic(iterator, remainder, measurementArray, unitArray, smallestUnitArray) {
   const unit = Math.floor(remainder / smallestUnitArray[iterator]) + " " + unitArray[iterator];
-  remainder = (remainder - smallestUnitArray[iterator] * (remainder / smallestUnitArray[iterator])).toFixed(4);
+  remainder = (remainder - smallestUnitArray[iterator] * (remainder / smallestUnitArray[iterator]));
   measurementArray.push(unit);
   return remainder;
 }
@@ -57,23 +57,23 @@ function joinCheck(result) {
 }
 
 export default function scalerLogic(input, unit, scale) {
-  const volMetricMultiply = [1, 1000];
-  const volMetricMeasure = ["ml", "liter"];
-  const massMetricMultiply = [1, 1000, 1000000];
-  const massMetricMeasure = ["gram", "kilogram", "metric ton"];
-  const volUsMultiply = [0.616115, 1.23223, 2.46446, 4.92892, 14.7868, 59.147, 78.8627, 118.294, 236.5881, 473.176, 946.3525, 3785.41, 35239.1];
-  const volUsMeasure = ["pinch", "quarter tsp", "half tsp", "teaspoon", "tablespoon", "quarter cup", "third cup", "half cup", "cup", "pint", "quart", "gallon", "bushel"];
-  const massUsMultiply = [3.54369, 7.08738, 14.1748, 28.3495, 453.5925, 907185];
-  const massUsMeasure = ["eighth ounce", "quarter ounce", "half ounce", "ounce", "pound", "ton"];
+  const volMetricMultiply = [0.5, 1, 1000];
+  const volMetricMeasure = ["half ml", "ml", "liter"];
+  const massMetricMultiply = [0.5, 1, 1000, 1000000];
+  const massMetricMeasure = ["half gram", "gram", "kilogram", "metric ton"];
+  const volUsMultiply = [0.3080575, 0.616115, 1.23223, 2.46446, 4.92892, 14.7868, 59.147, 78.8627, 118.294, 236.5881, 473.176, 946.3525, 3785.41, 35239.1];
+  const volUsMeasure = ["sixteenth tsp", "eighth tsp", "quarter tsp", "half tsp", "teaspoon", "tablespoon", "quarter cup", "third cup", "half cup", "cup", "pint", "quart", "gallon", "bushel"];
+  const massUsMultiply = [0.8859225, 1.771845, 3.54369, 7.08738, 14.1748, 28.3495, 453.5925, 907185];
+  const massUsMeasure = ["thirty second ounce", "sixteenth ounce", "eighth ounce", "quarter ounce", "half ounce", "ounce", "pound", "ton"];
   let result = 0;
   if (volMetricMeasure.indexOf(unit) != -1) {
-    result = convertUtility(input, unit, scale, volMetricMeasure, volMetricMultiply)
+    result = convertUtility(input, unit, scale, volMetricMeasure, volMetricMultiply);
   } else if (volUsMeasure.indexOf(unit) != -1) {
-    result = convertUtility(input, unit, scale, volUsMeasure, volUsMultiply)
+    result = convertUtility(input, unit, scale, volUsMeasure, volUsMultiply);
   } else if (massMetricMeasure.indexOf(unit) != -1) {
-    result = convertUtility(input, unit, scale, massMetricMeasure, massMetricMultiply)
+    result = convertUtility(input, unit, scale, massMetricMeasure, massMetricMultiply);
   } else if (massUsMeasure.indexOf(unit) != -1) {
-    result = convertUtility(input, unit, scale, massUsMeasure, massUsMultiply)
+    result = convertUtility(input, unit, scale, massUsMeasure, massUsMultiply);
   } else if (unit === null) {
     result = "";
   } else {

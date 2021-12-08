@@ -119,7 +119,7 @@ function clearFields() {
   $('#search').val("");
 }
 
-$('#initialSearchSubmit').click(function(event) {
+$('#formSearchRecipes').submit(function(event) {
   event.preventDefault();
   let userSearch  = $('#search').val();
   $("#greeting").hide();
