@@ -1,6 +1,6 @@
 function unitLogic(iterator, remainder, measurementArray, unitArray, smallestUnitArray) {
   const unit = Math.floor(remainder / smallestUnitArray[iterator]) + " " + unitArray[iterator];
-  remainder = (remainder % smallestUnitArray[iterator]);
+  remainder = (remainder - smallestUnitArray[iterator] * (remainder / smallestUnitArray[iterator])).toFixed(4);
   measurementArray.push(unit);
   return remainder;
 }
@@ -9,8 +9,6 @@ function unitLogic(iterator, remainder, measurementArray, unitArray, smallestUni
 function smallestUnit(convertedInput, unitArray, smallestUnitArray) {
   let measurementArray = [];
   let remainder = convertedInput;
-  // console.log(" = " + );
-  // console.log(" = " + );
   for (let i = smallestUnitArray.length; i >= 0; i--) {
     if (remainder >= smallestUnitArray[i] && remainder >= smallestUnitArray[0]) {
       remainder = unitLogic(i, remainder, measurementArray, unitArray, smallestUnitArray);
@@ -41,7 +39,7 @@ function smallestUnit(convertedInput, unitArray, smallestUnitArray) {
 }
 
 function convertUtility(input, unit, scale, measureArray, multiplyArray) {
-  let convertInput = input * multiplyArray[measureArray.indexOf(unit)] * scale;
+  let convertInput = (input * multiplyArray[measureArray.indexOf(unit)] * scale).toFixed(4);
   if (convertInput < multiplyArray[0]) {
     convertInput = (convertInput/multiplyArray[0]).toFixed(2);
     return `${convertInput} ${measureArray[0]}`;
