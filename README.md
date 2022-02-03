@@ -16,8 +16,8 @@
 
 ## Description
 
-_This project was created for Epicodus bootcamp as our week 7 Team Week project. The application is for searching for and modifying recipes. The user can search for recipes, scale the recipes to the size they want, and then add ingredients to a shopping list._
-_[Check out the project live on gh-pages!](https://christophermneal.github.io/recipe-keeper)_
+_This project was created for Epicodus bootcamp as our week 7 Team Week project. The application is for searching for and modifying recipes. The user can search for recipes, scale the recipes to the size they want, and then add ingredients to a shopping list._  
+**_[Check out the project live on gh-pages!](https://christophermneal.github.io/recipe-keeper)_**
 
 ## Setup/Installation Requirements
 
