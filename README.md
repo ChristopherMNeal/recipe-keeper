@@ -17,6 +17,7 @@
 ## Description
 
 _This project was created for Epicodus bootcamp as our week 7 Team Week project. The application is for searching for and modifying recipes. The user can search for recipes, scale the recipes to the size they want, and then add ingredients to a shopping list._
+_[Check out the project live on gh-pages!](https://christophermneal.github.io/recipe-keeper)_
 
 ## Setup/Installation Requirements
 
@@ -24,8 +25,6 @@ _This project was created for Epicodus bootcamp as our week 7 Team Week project.
 * _From the project directory, run `npm install` in the terminal to load necessary plugins and packages._
 * _Run `npm run start` to start the application._
 * _Alternatively, you can run `npm run build` and open dist/index.html in your preferred browser._
-
-* _Or you can click [here](https://christophermneal.github.io/recipe-keeper) to visit the page on gh-pages._
 
 * _To get an API key for Edamam, first sign up for a 'Recipe Search' account [here](https://developer.edamam.com/). Once you are signed in, click on the 'Get an API key now!' tab in your account. Click 'view' on your 'Recipe Search API' application and copy the API key, as well as the App Key._
 * _In the terminal from the project directory run `touch .env` to create an environment file._
